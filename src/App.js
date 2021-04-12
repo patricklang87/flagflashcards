@@ -26,7 +26,7 @@ function App() {
         <Nav />
         <main>
           <Switch>
-            <Route path='/Home' exact component={Home} /> 
+            <Route exact path='/' component={Home} /> 
             <Route path='/CountryList' exact component={CountryList} />
             <Route path='/KnownFlags' exact component={KnownFlags} /> 
             <Route path='/FlashCards' exact component={FlashCards} />  

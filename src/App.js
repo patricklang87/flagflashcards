@@ -5,7 +5,7 @@ import CountryList from './components/countryList';
 import FlagQuiz from './components/flagQuiz';
 import { FlashCards } from "./components/FlashCards";
 import KnownFlags from './components/knownFlags';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 import { loadFlags } from './redux/fetchFlags';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';

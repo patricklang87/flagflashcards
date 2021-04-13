@@ -1,9 +1,19 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { closeCurrentQuiz } from '../redux/flagQuizRedux';
+import { markAsKnown, markAsUnknown } from '../redux/cardFlip';
 
 const QuizResults = () => {
     const currentQuizQuestions = useSelector(state => state.flagQuiz.currentQuizQuestions);
+    const mainDeck = useSelector(state => state.flipCard.deck);
     let dispatch = useDispatch();
+
+    const colorForCorrect = {
+        backgroundColor: "rgb(208, 247, 208)"
+    };
+
+    const colorForIncorrect = {
+        backgroundColor: "rgb(247, 208, 208)"
+    };
     
 
     const resultsDiv = currentQuizQuestions.map((item, index) => {
@@ -28,6 +38,8 @@ const QuizResults = () => {
         }
 
         const correctResponse = item.correctAnswer;
+        const isCorrect = ((selectedResponse[0]) && item.correctAnswer.name === selectedResponse[0].name);
+
         const correctResponseDisplay = (
             <div>
                 <img src={correctResponse.flag} alt={correctResponse.name} />
@@ -35,16 +47,31 @@ const QuizResults = () => {
             </div> 
         );
 
-        return (
-            
-                <div className="resultDiv">
+        let optionIfCorrect;
+        if (!mainDeck[correctResponse.mainDeckIndex].isMemorized) {
+            optionIfCorrect = (
+                <button onClick={() => {dispatch(markAsKnown(correctResponse.name))}}>Mark as Memorized</button>);
+        } else {
+            optionIfCorrect = <h3>Memorized &#10004;</h3>;
+        }
+
+        let optionIfIncorrect;
+        if (mainDeck[correctResponse.mainDeckIndex].isMemorized) {
+            optionIfIncorrect = (
+                <button onClick={() => {dispatch(markAsUnknown(correctResponse.name))}}>Mark  {correctResponse.name} as Not Memorized</button>);
+        } else {
+            optionIfIncorrect = <h3>Not Memorized &#10008;</h3>;
+        }
+
+        return (    
+                <div className="resultDiv" style={(isCorrect) ? colorForCorrect : colorForIncorrect} >
                     <p>Question {index + 1}</p>
                     <div className="results">
                         {correctResponseDisplay}
                         {responseDisplay}
                     </div>
+                    {(isCorrect) ? optionIfCorrect : optionIfIncorrect}
                 </div>
-
         );
     });
 
@@ -53,12 +80,13 @@ const QuizResults = () => {
     }
 
     return (
-        <div>
+        <div className="resultsComponent">
             <h2>Results</h2>
+            <button onClick={closeQuiz}>Close Results</button>
             <div className="allResults">
                 {resultsDiv}
             </div>
-            <button onClick={closeQuiz}>End Quiz</button> 
+            <button onClick={closeQuiz}>Close Results</button> 
         </div>
     );
 }

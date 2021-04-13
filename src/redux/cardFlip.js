@@ -12,11 +12,12 @@ export const cardFlipSlice = createSlice({
     reducers: {
         loadCards: (state, action) => {
             let deck = action.payload;
-            let newDeck = deck.map((card) => {
+            let newDeck = deck.map((card, index) => {
                return {...card,
             isFlipped: false,
             isSelected: false,
-            isMemorized: false}
+            isMemorized: false,
+            mainDeckIndex: index }
             });
             state.deck = newDeck;
         },
@@ -57,9 +58,37 @@ export const cardFlipSlice = createSlice({
                 ...state,
                 deck: updatedDeck
             }
+        },
+        markAsKnown: (state, action) => {
+            const deck = state.deck;
+            let updatedDeck = [];
+            for (let card of deck) {
+                if (card.name === action.payload) { 
+                    card.isMemorized = true;
+                }
+            updatedDeck.push(card);
+            }
+            state = {
+                ...state,
+                deck: updatedDeck
+            }
+        },
+        markAsUnknown: (state, action) => {
+            const deck = state.deck;
+            let updatedDeck = [];
+            for (let card of deck) {
+                if (card.name === action.payload) { 
+                    card.isMemorized = false;
+                }
+            updatedDeck.push(card);
+            }
+            state = {
+                ...state,
+                deck: updatedDeck
+            }
         }
     }
 });
 
-export const { flip, loadCards, changeRegion, updateSearchTerm, deleteSearchTerm, toggleMemorization } = cardFlipSlice.actions;
+export const { flip, loadCards, changeRegion, updateSearchTerm, deleteSearchTerm, toggleMemorization, markAsKnown, markAsUnknown } = cardFlipSlice.actions;
 export default cardFlipSlice.reducer;

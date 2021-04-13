@@ -9,7 +9,7 @@ export const flagQuizSlice = createSlice({
         lastScore: 0,
         currentTopScore: 0,
         currentQuestion: 0,
-        quizLength: 10 || this.deck.length
+        quizLength: 5 || this.deck.length
     },
     reducers: {
         changeQuizLength: (state, action) => {

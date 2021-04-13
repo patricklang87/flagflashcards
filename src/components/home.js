@@ -11,7 +11,7 @@ const Home = () => {
 
     return (
         <>
-            <h1>Countries and Territories</h1>
+            <h1>Learn Your Flags</h1>
             <h2>Test yourself on the flags of countries and territories around the world.</h2>
             <div className = "flagBanner">
                 {flagsPrepped}

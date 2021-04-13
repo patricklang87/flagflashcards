@@ -288,3 +288,31 @@ footer a{
     color: hotpink;
 }
 
+.allResults {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.resultDiv {
+    background-color: rgb(230, 230, 230);
+    margin: 10px;
+    text-align: center;
+}
+
+.results {
+    display: grid;
+    max-width: 280px;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+}
+
+.results div {
+    text-align: center;
+}
+
+.results div img {
+    max-width: 100px;
+}
+

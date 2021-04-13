@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { handleSelection, incrementQuestion, decrementQuestion, closeCurrentQuiz } from '../redux/flagQuizRedux';
+import { handleSelection, incrementQuestion, decrementQuestion } from '../redux/flagQuizRedux';
 import QuizScorer from './scoreQuiz';
 
 
@@ -45,18 +45,14 @@ const QuizBody = () => {
             );
         });
 
-        const closeQuiz = () => {
-            dispatch(closeCurrentQuiz());
-        }
+        
         const quizNav = (
             <div>
                 <button onClick={() => dispatch(decrementQuestion())} >PREVIOUS</button>
                 <button onClick={() => dispatch(incrementQuestion())} >NEXT</button>
                 <br />
                 <br />
-                <QuizScorer />
-                <br />
-                <button onClick={closeQuiz}>End Quiz</button>              
+                <QuizScorer />                            
             </div>     
         );
 

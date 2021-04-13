@@ -46,6 +46,7 @@ const QuizSetup = () => {
             
             quizDeck.push(questionPacket);
         }
+        console.log("quizDeck: ", quizDeck);
         dispatch(generateQuiz(quizDeck));
     }
     

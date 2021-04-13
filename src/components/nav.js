@@ -6,7 +6,7 @@ const Nav = () => {
     return (
         <>
         <nav>   
-           <Link to="/Home">Home</Link>  
+           <Link to="/">Home</Link>  
             <Link to="/CountryList">Country List</Link> 
             <Link to="/KnownFlags">Manage Flags</Link> 
             <Link to="/FlashCards">Flash Cards</Link>   

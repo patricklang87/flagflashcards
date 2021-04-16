@@ -10,7 +10,7 @@ const Nav = () => {
             <Link to="/CountryList">Country List</Link> 
             <Link to="/KnownFlags">Manage Flags</Link> 
             <Link to="/FlashCards">Flash Cards</Link>   
-            <Link to="/FlagQuiz">FlagQuiz</Link> 
+            <Link to="/FlagQuiz">Flag Quiz</Link> 
             <h3 className="viewNav" >Navigation</h3>    
         </nav>
         

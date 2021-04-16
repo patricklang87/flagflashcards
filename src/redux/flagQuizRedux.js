@@ -5,6 +5,7 @@ export const flagQuizSlice = createSlice({
     initialState: {
         quizGenerated: false,
         quizInProgress: false,
+        setToDifficult: false,
         currentQuizQuestions: [],
         lastScore: 0,
         currentTopScore: 0,
@@ -50,8 +51,11 @@ export const flagQuizSlice = createSlice({
             if (questionNumber < 0) questionNumber = state.quizLength - 1;
             state.currentQuestion = questionNumber;
         },
+        toggleDifficulty: (state) => {
+            state.setToDifficult = !state.setToDifficult;
+        }
     }
 });
 
-export const { generateQuiz, handleSelection, assessQuiz, closeCurrentQuiz, changeQuizLength, incrementQuestion, decrementQuestion } = flagQuizSlice.actions;
+export const { generateQuiz, handleSelection, assessQuiz, closeCurrentQuiz, changeQuizLength, incrementQuestion, decrementQuestion, toggleDifficulty } = flagQuizSlice.actions;
 export default flagQuizSlice.reducer;

@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/flagflashcards/static/css/main.6d441d50.chunk.css",
-    "main.js": "/flagflashcards/static/js/main.87e6550b.chunk.js",
-    "main.js.map": "/flagflashcards/static/js/main.87e6550b.chunk.js.map",
+    "main.css": "/flagflashcards/static/css/main.f37e4eca.chunk.css",
+    "main.js": "/flagflashcards/static/js/main.f9ffe236.chunk.js",
+    "main.js.map": "/flagflashcards/static/js/main.f9ffe236.chunk.js.map",
     "runtime-main.js": "/flagflashcards/static/js/runtime-main.f7b2b5f4.js",
     "runtime-main.js.map": "/flagflashcards/static/js/runtime-main.f7b2b5f4.js.map",
     "static/js/2.76c1640a.chunk.js": "/flagflashcards/static/js/2.76c1640a.chunk.js",
     "static/js/2.76c1640a.chunk.js.map": "/flagflashcards/static/js/2.76c1640a.chunk.js.map",
     "index.html": "/flagflashcards/index.html",
-    "static/css/main.6d441d50.chunk.css.map": "/flagflashcards/static/css/main.6d441d50.chunk.css.map",
+    "static/css/main.f37e4eca.chunk.css.map": "/flagflashcards/static/css/main.f37e4eca.chunk.css.map",
     "static/js/2.76c1640a.chunk.js.LICENSE.txt": "/flagflashcards/static/js/2.76c1640a.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.f7b2b5f4.js",
     "static/js/2.76c1640a.chunk.js",
-    "static/css/main.6d441d50.chunk.css",
-    "static/js/main.87e6550b.chunk.js"
+    "static/css/main.f37e4eca.chunk.css",
+    "static/js/main.f9ffe236.chunk.js"
   ]
 }

@@ -30,7 +30,7 @@ const QuizBody = () => {
 
                 return (
                     <div className="quizOption">
-                        <img onClick={onClick} className="quizFlag" src={choice.flag} alt="a flag" style={choice.isSelected ? selectedStyle : unselectedStyle } />
+                        <img onClick={onClick} className="quizFlag" src={choice.flags[0]} alt="a flag" style={choice.isSelected ? selectedStyle : unselectedStyle } />
                     </div>
                 );
             })

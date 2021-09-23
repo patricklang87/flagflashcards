@@ -35,11 +35,11 @@ export const FlashCards = () => {
             <div className="cardWrap" onClick={() => dispatch(flip(card.name))}>
                 <div className="card" style={{transform: flipStatus}}>
                     <div className="cardFront">
-                        <img className="flagImage" src={card.flag} alt="a flag" />
+                        <img className="flagImage" src={card.flags[0]} alt="a flag" />
                     </div>
                     <div className="cardBack">
                         <span>{card.name}</span>
-                        <img className="flagImage" src={card.flag} alt="a flag" />
+                        <img className="flagImage" src={card.flags[0]} alt="a flag" />
                             <button onClick={() => dispatch(toggleMemorization(card.name))}>I know this one!</button>
                     </div>
                 </div>

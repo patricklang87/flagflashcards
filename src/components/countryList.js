@@ -29,7 +29,7 @@ const CountryList = () => {
                 <h3>Estimated Population: {country.population}</h3>
                 <h3>Subregion: {country.subregion}, Region: {country.region}</h3>     
             </div>
-            <img className="flagImage" src={country.flag} alt={alt} />
+            <img className="flagImage" src={country.flags[0]} alt={alt} />
         </div>);
     });
 

@@ -5,7 +5,7 @@ const Home = () => {
 
     let flagsPrepped = flags.map((country) => {
         return (
-            <img src={country.flag} alt={country.name} />
+            <img src={country.flags[0]} alt={country.name} />
         );
     });
 
@@ -13,7 +13,7 @@ const Home = () => {
         <>
             <h1>Learn Your Flags</h1>
             <h2>Test yourself on the flags of countries and territories around the world.</h2>
-            {(flags.length === 0) && <p style={{color: 'red'}}>There was an error communicating with the Restcountries API. Please try again soon.</p>}
+            {/* {(flags.length === 0) && <p style={{color: 'red'}}>There was an error communicating with the Restcountries API. Please try again soon.</p>} */}
             <div className = "flagBanner">
                 {flagsPrepped}
             </div>

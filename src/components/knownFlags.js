@@ -24,7 +24,7 @@ const KnownFlags = () => {
     }).map((card) => {
         return (
             <div className="unmemorizedFlag" onClick={() => dispatch(toggleMemorization(card.name))} >
-                <img src={card.flag} alt={card.name} />
+                <img src={card.flags[0]} alt={card.name} />
                 <h4>{card.name}</h4>
             </div>
         );
@@ -35,7 +35,7 @@ const KnownFlags = () => {
     }).map((card) => {
         return (
             <div className="memorizedFlag" onClick={() => dispatch(toggleMemorization(card.name))} >
-                <img src={card.flag} alt={card.name} />
+                <img src={card.flags[0]} alt={card.name} />
                 <h4>{card.name}</h4>
             </div>
         );

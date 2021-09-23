@@ -35,7 +35,7 @@ function App() {
         </main>
       </Router>
       <footer>
-        <h3>Created with the <a href="https://restcountries.eu/">restcountries.eu</a> API</h3>
+        <h3>Created with the <a href="https://restcountries.com/">restcountries.com</a> API</h3>
         <h3>A project by <a href="https://patricklang87.github.io/portfolio/" >Patrick Lang</a></h3>
         <h3>&copy; 2021</h3>
       </footer>

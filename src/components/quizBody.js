@@ -45,11 +45,18 @@ const QuizBody = () => {
             );
         });
 
+        const firstQuestion = (questionNumber === 0);
+        const lastQuestion = (questionNumber === quizDeck.length - 1);
+        const disabledStyle = {
+            color: "lightgrey",
+            border: "lightgrey 1px solid"
+        }
+
         
         const quizNav = (
             <div>
-                <button onClick={() => dispatch(decrementQuestion())} >PREVIOUS</button>
-                <button onClick={() => dispatch(incrementQuestion())} >NEXT</button>
+                <button style={firstQuestion ? disabledStyle : null} onClick={() => dispatch(decrementQuestion())} >PREVIOUS</button>
+                <button style={lastQuestion ? disabledStyle : null} onClick={() => dispatch(incrementQuestion())} >NEXT</button>
                 <br />
                 <br />
                 <QuizScorer />                            

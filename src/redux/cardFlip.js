@@ -11,7 +11,7 @@ export const cardFlipSlice = createSlice({
     },
     reducers: {
         loadCards: (state, action) => {
-            let deck = action.payload;
+            let deck = action.payload || []; // added ||[] for instances of api failure
             let newDeck = deck.map((card, index) => {
                return {...card,
             isFlipped: false,

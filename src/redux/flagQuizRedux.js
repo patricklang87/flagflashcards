@@ -20,6 +20,7 @@ export const flagQuizSlice = createSlice({
             state.quizInProgress = true;
             state.currentQuizQuestions = action.payload;
             state.quizGenerated = true;
+            state.currentQuestion = 0;
         },
         handleSelection: (state, action) => {
             let questionNumber = action.payload.questionIndex;
@@ -42,13 +43,13 @@ export const flagQuizSlice = createSlice({
         incrementQuestion: (state) => {
             let questionNumber = state.currentQuestion;
             questionNumber++;
-            if (questionNumber >= state.quizLength) questionNumber = 0;
+            if (questionNumber >= state.quizLength) questionNumber = state.quizLength - 1;
             state.currentQuestion = questionNumber;
         },
         decrementQuestion: (state) => {
             let questionNumber = state.currentQuestion;
             questionNumber--;
-            if (questionNumber < 0) questionNumber = state.quizLength - 1;
+            if (questionNumber < 0) questionNumber = 0;
             state.currentQuestion = questionNumber;
         },
         toggleDifficulty: (state) => {

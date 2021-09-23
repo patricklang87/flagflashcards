@@ -9,6 +9,7 @@ main {
     margin-top: 86px;
     margin-left: 20px;
     margin-right: 20px;
+    min-height: 100vh;
 }
 
 button {
@@ -49,6 +50,10 @@ nav a {
 
 .viewNav {
     display: none;
+}
+
+footer {
+    bottom: 0;
 }
 
 

@@ -35,9 +35,8 @@ function App() {
         </main>
       </Router>
       <footer>
-        <h3>Created with the <a href="https://restcountries.com/">restcountries.com</a> API</h3>
-        <h3>A project by <a href="https://patricklang87.github.io/portfolio_3D/" >Patrick Lang</a></h3>
-        <h3>&copy; 2021</h3>
+        <p>Created with the <a href="https://restcountries.com/">restcountries.com</a> API. All data reflects information stored in this API.</p>
+        <p>A project by <a href="https://patricklang87.github.io/portfolio_3D/" >Patrick Lang</a> &copy; 2021</p>
       </footer>
     </div>
   );

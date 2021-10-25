@@ -52,10 +52,23 @@ nav a {
     display: none;
 }
 
+.boardView {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
 footer {
     bottom: 0;
 }
 
+footer p {
+    margin: 0 20px 0 0;
+}
+
+footer a {
+    text-decoration: none;
+}
 
 @media only screen and (max-width: 580px) {
     nav {
@@ -153,7 +166,7 @@ nav a:active {
 }
 
 .cardWrap {
-    margin: 20px;
+    margin: 10px;
     height: 250px;
     width: 400px;
     transform-style: preserve-3d;

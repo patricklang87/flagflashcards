@@ -5,7 +5,7 @@ const Home = () => {
 
     let flagsPrepped = flags.map((country) => {
         return (
-            <img src={country.flags[0]} alt={country.name} />
+            <img src={country.flags.png} alt={country.name} />
         );
     });
 

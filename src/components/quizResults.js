@@ -25,7 +25,7 @@ const QuizResults = () => {
         if (selectedResponse[0]) {
             responseDisplay = (
                 <div>
-                    <img src={selectedResponse[0].flags[0]} alt={selectedResponse[0].name} />
+                    <img src={selectedResponse[0].flags.png} alt={selectedResponse[0].name} />
                     <p>You selected: {selectedResponse[0].name}.</p> 
                 </div>
             );
@@ -42,7 +42,7 @@ const QuizResults = () => {
 
         const correctResponseDisplay = (
             <div>
-                <img src={correctResponse.flags[0]} alt={correctResponse.name} />
+                <img src={correctResponse.flags.png} alt={correctResponse.name} />
                 <p>Correct response: {correctResponse.name}.</p>  
             </div> 
         );

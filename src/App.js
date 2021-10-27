@@ -36,7 +36,7 @@ function App() {
       </Router>
       <footer>
         <p>Created with the <a href="https://restcountries.com/">restcountries.com</a> API. All data reflects information stored in this API.</p>
-        <p>A project by <a href="https://patricklang87.github.io/portfolio_3D/" >Patrick Lang</a> &copy; 2021</p>
+        <p>A project by <a href="https://langportfolio.herokuapp.com/" >Patrick Lang</a> &copy; 2021</p>
       </footer>
     </div>
   );

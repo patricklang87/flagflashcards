@@ -1,21 +1,26 @@
 import React from 'react';
 import RegionSelector from "./regionSelector";
-import { flip, toggleMemorization } from '../redux/cardFlip';
+import { flip } from '../redux/cardFlip';
+import { addMemorizedFlag } from '../redux/userRedux';
+import { addFlag } from '../utils/memorized';
 import { useSelector, useDispatch } from "react-redux";
-
-
-
 
 export const FlashCards = () => {
     const dispatch = useDispatch();
     let cards = useSelector(state => state.flipCard.deck);
     let currentRegion = useSelector(state => state.flipCard.region);
+    const memorized = useSelector(state => state.user.memorizedFlags);
 
     // let shuffledCards = [];
     // for (let card of cards) {
     //     let insertAtIndex = Math.floor(Math.random()*shuffledCards.length);
     //     shuffledCards.splice(insertAtIndex, 0, card);
     // }
+
+    const handleMemorize = (card) => {
+        dispatch(addMemorizedFlag(card));
+        addFlag(card);
+    }
 
     let currentDeck = cards;
     if (currentRegion !== "All Regions") {
@@ -25,7 +30,7 @@ export const FlashCards = () => {
     }
 
     let unmemorizedDeck = currentDeck.filter((card) => {
-        return !card.isMemorized;
+        return !memorized.includes(card.name);
     })
 
     let deck = unmemorizedDeck.map((card) => {
@@ -40,7 +45,7 @@ export const FlashCards = () => {
                     <div className="cardBack">
                         <span>{card.name}</span>
                         <img className="flagImage" src={card.flags.png} alt="a flag" />
-                            <button onClick={() => dispatch(toggleMemorization(card.name))}>I know this one!</button>
+                            <button onClick={() => handleMemorize(card.name)}>I know this one!</button>
                     </div>
                 </div>
         </div>

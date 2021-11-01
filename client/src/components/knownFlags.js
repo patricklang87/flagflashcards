@@ -1,13 +1,15 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { toggleMemorization } from '../redux/cardFlip';
 import RegionSelector from './regionSelector';
 import SearchBar from './searchBar';
+import { addFlag, removeFlag } from '../utils/memorized';
+import { addMemorizedFlag, removeMemorizedFlag } from '../redux/userRedux';
 
 const KnownFlags = () => {
     const dispatch = useDispatch();
     const cards = useSelector(state => state.flipCard.deck);
     const searchTerm = useSelector(state => state.flipCard.searchTerm);
     const currentRegion = useSelector(state => state.flipCard.region);
+    const memorized = useSelector(state => state.user.memorizedFlags);
 
     let currentDeckByRegion = cards;
     if (currentRegion !== "All Regions") {
@@ -19,11 +21,23 @@ const KnownFlags = () => {
         return (card.name.toLowerCase().includes(searchTerm.toLowerCase()));
     });
 
+    //handle clicks on cards
+    const handleMemorize = (name) => {
+        addFlag(name);
+        dispatch(addMemorizedFlag(name))
+    }
+
+    const handleForget = (name) => {
+        removeFlag(name);
+        dispatch(removeMemorizedFlag(name));
+    }
+
+    // memorized and unmemorized cards
     const unmemorizedCards = currentDeck.filter((card) => {
-        return !card.isMemorized;
+        return !memorized.includes(card.name);
     }).map((card) => {
         return (
-            <div className="unmemorizedFlag" onClick={() => dispatch(toggleMemorization(card.name))} >
+            <div className="unmemorizedFlag" onClick={() => handleMemorize(card.name)} >
                 <img src={card.flags.png} alt={card.name} />
                 <h4>{card.name}</h4>
             </div>
@@ -31,10 +45,10 @@ const KnownFlags = () => {
     });
 
     const memorizedCards = currentDeck.filter((card) => {
-        return card.isMemorized;
+        return memorized.includes(card.name);
     }).map((card) => {
         return (
-            <div className="memorizedFlag" onClick={() => dispatch(toggleMemorization(card.name))} >
+            <div className="memorizedFlag" onClick={() => handleForget(card.name)} >
                 <img src={card.flags.png} alt={card.name} />
                 <h4>{card.name}</h4>
             </div>

@@ -6,19 +6,41 @@ import FlagQuiz from './components/flagQuiz';
 import { FlashCards } from "./components/FlashCards";
 import KnownFlags from './components/knownFlags';
 import { HashRouter as Router, Route, Switch } from 'react-router-dom';
-import { loadFlags } from './redux/fetchFlags';
-import { useDispatch } from 'react-redux';
+import { loadFlags } from './utils/fetchFlags';
+import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
+import { getUserData } from './utils/auth';
+import { setCurrentUser, removeCurrentUser } from './redux/userRedux';
 //reddit toolkit and middleware: https://www.youtube.com/watch?v=qA6oyQQTJ3I
 
 
 
 function App() {
+  const flagDeck = useSelector(state => state.flipCard.deck);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(loadFlags());
-  }, [dispatch]);
+    if (flagDeck.length < 1) {
+      dispatch(loadFlags());
+    }
+
+    const checkForLogin = async () => {
+        if (localStorage.getItem('lyf_token')) {
+          try {
+            let response = await getUserData();
+            console.log("in app", response.data);
+            dispatch(setCurrentUser(response.data));
+          } catch (err) {
+            console.log(err);
+          }
+      } else {
+        dispatch(removeCurrentUser());
+      }
+    }
+    
+    checkForLogin();
+
+  }, [dispatch, flagDeck]);
 
   return (
     <div className="App">

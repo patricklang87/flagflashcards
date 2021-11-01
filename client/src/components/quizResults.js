@@ -1,9 +1,11 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { closeCurrentQuiz } from '../redux/flagQuizRedux';
-import { markAsKnown, markAsUnknown } from '../redux/cardFlip';
+import { addMemorizedFlag, removeMemorizedFlag } from '../redux/userRedux';
+import { addFlag, removeFlag } from '../utils/memorized';
 
 const QuizResults = () => {
     const currentQuizQuestions = useSelector(state => state.flagQuiz.currentQuizQuestions);
+    const memorized = useSelector(state => state.user.memorizedFlags);
     const mainDeck = useSelector(state => state.flipCard.deck);
     let dispatch = useDispatch();
 
@@ -14,6 +16,16 @@ const QuizResults = () => {
     const colorForIncorrect = {
         backgroundColor: "rgb(247, 208, 208)"
     };
+
+    const handleMemorize = (card) => {
+        dispatch(addMemorizedFlag(card));
+        addFlag(card);
+    }
+
+    const handleForget = (card) => {
+        dispatch(removeMemorizedFlag(card));
+        removeFlag(card);
+    }
     
 
     const resultsDiv = currentQuizQuestions.map((item, index) => {
@@ -48,17 +60,17 @@ const QuizResults = () => {
         );
 
         let optionIfCorrect;
-        if (!mainDeck[correctResponse.mainDeckIndex].isMemorized) {
+        if (!memorized.includes(item.correctAnswer.name)) {
             optionIfCorrect = (
-                <button onClick={() => {dispatch(markAsKnown(correctResponse.name))}}>Mark as Memorized</button>);
+                <button onClick={() => handleMemorize(correctResponse.name)}>Mark as Memorized</button>);
         } else {
             optionIfCorrect = <h3>Memorized &#10004;</h3>;
         }
 
         let optionIfIncorrect;
-        if (mainDeck[correctResponse.mainDeckIndex].isMemorized) {
+        if (memorized.includes(item.correctAnswer.name)) {
             optionIfIncorrect = (
-                <button onClick={() => {dispatch(markAsUnknown(correctResponse.name))}}>Mark  {correctResponse.name} as Not Memorized</button>);
+                <button onClick={() => handleForget(correctResponse.name)}>Mark  {correctResponse.name} as Not Memorized</button>);
         } else {
             optionIfIncorrect = <h3>Not Memorized &#10008;</h3>;
         }

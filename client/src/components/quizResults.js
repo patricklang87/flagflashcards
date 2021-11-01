@@ -6,7 +6,6 @@ import { addFlag, removeFlag } from '../utils/memorized';
 const QuizResults = () => {
     const currentQuizQuestions = useSelector(state => state.flagQuiz.currentQuizQuestions);
     const memorized = useSelector(state => state.user.memorizedFlags);
-    const mainDeck = useSelector(state => state.flipCard.deck);
     let dispatch = useDispatch();
 
     const colorForCorrect = {

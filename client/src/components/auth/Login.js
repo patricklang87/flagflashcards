@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { login } from '../../utils/auth';
 import { setCurrentUser } from '../../redux/userRedux';
 
 export default function Login({setViewLogin}) {
+    const history = useHistory();
     const dispatch = useDispatch();
     const [password, setPassword] = useState('');
     const [email, setEmail] = useState('');
@@ -23,6 +25,7 @@ export default function Login({setViewLogin}) {
             if (response.data.user) {
                 console.log('response.data.user', response.data.user);
                 dispatch(setCurrentUser(response.data));
+                history.push('/KnownFlags')
             }
         } catch (err) {
             console.log(err);

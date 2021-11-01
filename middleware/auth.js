@@ -3,8 +3,6 @@ const jwt = require('jsonwebtoken');
 
 const auth = (req, res, next) => {
     const token = req.header('x-auth-token');
-    console.log("req.body", req.body)
-    console.log("token on backend:", token);
     //check for token
     if (!token) return res.status(401).json({ msg: 'no token, authorization denied'});
 

@@ -41,11 +41,22 @@ nav {
     z-index: 1;
 }
 
-nav a {
+nav a, .buttonAsNav {
     margin: 20px;
     color: white;
     font-family: 'Heebo', sans-serif;
     text-decoration: none;
+}
+
+.buttonAsNav {
+    border: none;
+    cursor: pointer;
+    background: inherit;
+    font-size: 1em;
+}
+
+.buttonAsNav:hover {
+    background-color: inherit;
 }
 
 .viewNav {

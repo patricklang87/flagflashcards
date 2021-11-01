@@ -15,9 +15,8 @@ const Nav = () => {
             <Link to="/KnownFlags">Manage Flags</Link> 
             <Link to="/FlashCards">Flash Cards</Link>   
             <Link to="/FlagQuiz">Flag Quiz</Link>
-            {(currentUser) && <span style={{color: 'white', margin: 'auto'}}>Welcome, {currentUser}!</span>}
             {(currentUser) ? <Logout /> : <Link to="/">Login</Link> } 
-            
+            {(currentUser) && <span style={{color: 'white', margin: 'auto'}}>Welcome, {currentUser}!</span>}
             <h3 className="viewNav" >Navigation</h3>    
         </nav>
         

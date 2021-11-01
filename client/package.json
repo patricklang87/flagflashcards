@@ -1,5 +1,4 @@
 {
-  "homepage": "http://patricklang87.github.io/flagflashcards",
   "name": "react-redux-personal-project",
   "version": "0.1.0",
   "private": true,
@@ -23,9 +22,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "eject": "react-scripts eject"
+
   },
   "proxy": "http://localhost:5000",
   "eslintConfig": {

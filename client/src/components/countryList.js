@@ -22,7 +22,7 @@ const CountryList = () => {
         let alt = `The flag of ${country.name}`;
         
         return (
-        <div className="nameFlagDisplay">
+        <div key={country.name + 'list'} className="nameFlagDisplay">
             <div className="countryInfo">
                 <h2>{country.name}</h2>
                 <h3>Capital City: {country.capital}</h3>

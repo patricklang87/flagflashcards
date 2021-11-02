@@ -1,0 +1,60 @@
+nav {
+    display: flex;
+    justify-content: right;
+    background-color:rgb(255, 255, 255);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    margin: 0;
+    z-index: 2;
+    box-shadow: 1px 1px 3px 3px rgb(226, 226, 226);
+}
+
+nav a, .buttonAsNav {
+    margin: 10px 20px 10px 20px;
+    color: black;
+    font-family: 'Heebo', sans-serif;
+    text-decoration: none;
+}
+
+.buttonAsNav {
+    border: none;
+    cursor: pointer;
+    background: inherit;
+    font-size: 1em;
+}
+
+.buttonAsNav:hover {
+    background-color: inherit;
+}
+
+.viewNav {
+    display: none;
+}
+
+nav a:active {
+    color: lime;
+}
+
+@media only screen and (max-width: 480px) {
+    nav {
+        flex-direction: column;
+        transition-property: transform;
+        transition-duration: 150ms;
+        text-align: center;
+    }
+
+    nav a, .buttonAsNav {   
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+
+    .viewNav {
+        display: block;
+        text-align: right;
+        margin-right: 20px;
+        margin-bottom: 5px;
+    }
+
+}
+

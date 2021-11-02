@@ -7,6 +7,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 export const FlashCards = () => {
     const dispatch = useDispatch();
+    const currentUser = useSelector(state => state.user.user);
     let cards = useSelector(state => state.flipCard.deck);
     let currentRegion = useSelector(state => state.flipCard.region);
     const memorized = useSelector(state => state.user.memorizedFlags);
@@ -19,7 +20,9 @@ export const FlashCards = () => {
 
     const handleMemorize = (card) => {
         dispatch(addMemorizedFlag(card));
-        addFlag(card);
+        if (currentUser) {
+            addFlag(card);
+        }
     }
 
     let currentDeck = cards;
@@ -37,7 +40,7 @@ export const FlashCards = () => {
         let flipStatus = card.isFlipped ? "rotateY(0deg)" : " rotateY(180deg)";
 
         return (
-            <div className="cardWrap" onClick={() => dispatch(flip(card.name))}>
+            <div key={card.name + 'flash'} className="cardWrap" onClick={() => dispatch(flip(card.name))}>
                 <div className="card" style={{transform: flipStatus}}>
                     <div className="cardFront">
                         <img className="flagImage" src={card.flags.png} alt="a flag" />

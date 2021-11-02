@@ -29,40 +29,6 @@ button:active {
     border: inset 1px grey;
 }
 
-nav {
-    display: flex;
-    justify-content: left;
-    background-color:rgb(126, 126, 126);
-    border-bottom: black 2px solid;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    margin: 0;
-    z-index: 1;
-}
-
-nav a, .buttonAsNav {
-    margin: 20px;
-    color: white;
-    font-family: 'Heebo', sans-serif;
-    text-decoration: none;
-}
-
-.buttonAsNav {
-    border: none;
-    cursor: pointer;
-    background: inherit;
-    font-size: 1em;
-}
-
-.buttonAsNav:hover {
-    background-color: inherit;
-}
-
-.viewNav {
-    display: none;
-}
-
 .boardView {
     display: flex;
     flex-wrap: wrap;
@@ -79,47 +45,6 @@ footer p {
 
 footer a {
     text-decoration: none;
-}
-
-@media only screen and (max-width: 580px) {
-    nav {
-        flex-direction: column;
-        transform: translateY(-180px);
-        transition-property: transform;
-        transition-duration: 150ms;
-    }
-
-    nav a {   
-        margin-top: 5px;
-        margin-bottom: 5px;
-    }
-
-    .viewNav {
-        display: block;
-        text-align: right;
-        margin-right: 20px;
-        margin-bottom: 5px;
-    }
-
-    nav:hover {
-        transform: translateY(0);
-    }
-
-}
-
-nav a:active {
-    color: lime;
-}
-
-.flagBanner {
-    margin-top: 150px;
-    margin-left: -20px;
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.flagBanner img {
-    height: 20px;
 }
 
 .nameFlagDisplay {

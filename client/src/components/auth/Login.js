@@ -9,7 +9,7 @@ export default function Login({setViewLogin}) {
     const dispatch = useDispatch();
     const [password, setPassword] = useState('');
     const [email, setEmail] = useState('');
-    const [msg, setMsg] = useState('');
+    const [msg, setMsg] = useState('Log in to view your memorized flags.');
 
     const handleLogin = async () => {
         if (!password || !email) {

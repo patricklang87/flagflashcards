@@ -8,7 +8,7 @@ export default function Register({setViewLogin}) {
     const [password, setPassword] = useState('');
     const [email, setEmail] = useState('');
     const [name, setName] = useState('');
-    const [msg, setMsg] = useState('');
+    const [msg, setMsg] = useState('Register to track your memorized flags.');
 
     const handleRegister = async () => {
         if (!password || !email || !name) {

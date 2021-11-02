@@ -1,6 +1,6 @@
 import './App.css';
-import Nav from './components/nav';
-import Home from './components/home';
+import Nav from './components/nav/nav';
+import Home from './components/home/home';
 import CountryList from './components/countryList';
 import FlagQuiz from './components/flagQuiz';
 import { FlashCards } from "./components/FlashCards";
@@ -17,6 +17,7 @@ import { setCurrentUser, removeCurrentUser } from './redux/userRedux';
 
 function App() {
   const flagDeck = useSelector(state => state.flipCard.deck);
+  const currentUser = useSelector(state => state.user.user);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -34,13 +35,15 @@ function App() {
             console.log(err);
           }
       } else {
-        dispatch(removeCurrentUser());
+        if (currentUser) {
+          dispatch(removeCurrentUser());
+        }
       }
     }
     
     checkForLogin();
 
-  }, [dispatch, flagDeck]);
+  }, [dispatch, currentUser, flagDeck]);
 
   return (
     <div className="App">

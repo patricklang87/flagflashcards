@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { removeCurrentUser } from '../../redux/userRedux';
 
-export default function Logout() {
+export default function Logout({ setNavVis }) {
     const history = useHistory();
     const dispatch = useDispatch();
 
@@ -15,6 +15,6 @@ export default function Logout() {
     }
 
     return (
-        <button onClick={() => logout()} className="buttonAsNav">Logout</button>
+        <button onClick={() => {logout(); setNavVis(false);}} className="buttonAsNav">LOGOUT</button>
     )
 }

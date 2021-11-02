@@ -1,0 +1,61 @@
+.homeScreen {
+    position: relative;
+}
+
+.homeScreen h1 {
+    margin-bottom: 0;
+    font-size: 5em;
+}
+
+.homeScreen h2 {
+    margin-top: 0;
+}
+
+.landingBox {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    
+}
+
+.titleBox {
+    grid-column: 2 / span 6;
+    z-Index: 1;
+}
+
+.authBox {
+    grid-column: 9 / span 3;
+    margin-top: 25px;
+    z-Index: 1;
+}
+
+.flagBanner {
+    opacity: .2;
+    position: absolute;
+    top: 120px;
+    margin-right: -20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    z-Index: 0
+}
+
+.flagBanner img {
+    height: 20px;
+}
+
+@media only screen and (max-width: 580px) {
+    .homeScreen h1 {
+        font-size: 3em;
+    }
+
+    .landingBox{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .authBox {
+        display: flex;
+        /* justify-content: center; */
+    }
+}

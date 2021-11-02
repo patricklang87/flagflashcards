@@ -6,6 +6,7 @@ import { addMemorizedFlag, removeMemorizedFlag } from '../redux/userRedux';
 
 const KnownFlags = () => {
     const dispatch = useDispatch();
+    const currentUser = useSelector(state => state.user.user);
     const cards = useSelector(state => state.flipCard.deck);
     const searchTerm = useSelector(state => state.flipCard.searchTerm);
     const currentRegion = useSelector(state => state.flipCard.region);
@@ -23,13 +24,13 @@ const KnownFlags = () => {
 
     //handle clicks on cards
     const handleMemorize = (name) => {
-        addFlag(name);
-        dispatch(addMemorizedFlag(name))
+        dispatch(addMemorizedFlag(name));
+        if (currentUser) addFlag(name);
     }
 
     const handleForget = (name) => {
-        removeFlag(name);
         dispatch(removeMemorizedFlag(name));
+        if (currentUser) removeFlag(name);
     }
 
     // memorized and unmemorized cards
@@ -37,7 +38,7 @@ const KnownFlags = () => {
         return !memorized.includes(card.name);
     }).map((card) => {
         return (
-            <div className="unmemorizedFlag" onClick={() => handleMemorize(card.name)} >
+            <div key={card.name + 'unmem'} className="unmemorizedFlag" onClick={() => handleMemorize(card.name)} >
                 <img src={card.flags.png} alt={card.name} />
                 <h4>{card.name}</h4>
             </div>
@@ -48,7 +49,7 @@ const KnownFlags = () => {
         return memorized.includes(card.name);
     }).map((card) => {
         return (
-            <div className="memorizedFlag" onClick={() => handleForget(card.name)} >
+            <div key={card.name + "unmem"} className="memorizedFlag" onClick={() => handleForget(card.name)} >
                 <img src={card.flags.png} alt={card.name} />
                 <h4>{card.name}</h4>
             </div>
